@@ -12,10 +12,13 @@ import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
+console.log('test');
+
 const jsx = (
   <Provider store={store}>
     <AppRouter />
   </Provider>
-);
+)
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(jsx, document.getElementById('app'))
+

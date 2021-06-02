@@ -1,6 +1,7 @@
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
-// ADD_EXPENSE
+
+// ADD_EXPENSE action generator functions
 export const addExpense = (
   {
     description = '',
@@ -11,23 +12,29 @@ export const addExpense = (
 ) => ({
   type: 'ADD_EXPENSE',
   expense: {
-    id: uuid(),
+    id: uuidv4(),
     description,
     note,
     amount,
     createdAt
   }
-});
+})
 
-// REMOVE_EXPENSE
+// REMOVE_EXPANSE
 export const removeExpense = ({ id } = {}) => ({
   type: 'REMOVE_EXPENSE',
   id
-});
+})
 
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
   type: 'EDIT_EXPENSE',
   id,
   updates
-});
+})
+
+// SET_TEXT_FILTER
+export const setTextFilter = (text = '') => ({
+  type: 'SET_TEXT_FILTER',
+  text
+})
