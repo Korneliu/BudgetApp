@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import "firebase/database";
 
 const firebaseConfig = {
@@ -14,10 +14,30 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+const database = firebase.database();
 
-firebase.database().ref().set({
-  name: 'Max'
+database.ref().set({
+  name: 'Max Cendalski',
+  age: 44,
+  isSingle: false,
+  location: {
+    city: 'Aliso Viejo',
+    country: 'United States'
+  }
+}).then(() => {
+  console.log('Data is saved')
+}).catch((e) => {
+  console.log('This failed.', e)
 })
+
+// database.ref('isSingle').remove()
+//   .then(() => {
+//     console.log('Item removed')
+//   }).catch((e) => {
+//     console.log('something went wrong', e)
+//   })
+
+
 
 /* < !--The core Firebase JS SDK is always required and must be listed first-- >
 <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
