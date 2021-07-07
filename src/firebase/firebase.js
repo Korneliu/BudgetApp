@@ -13,22 +13,101 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 const database = firebase.database();
 
-database.ref().set({
-  name: 'Max Cendalski',
-  age: 44,
-  isSingle: false,
-  location: {
-    city: 'Aliso Viejo',
-    country: 'United States'
-  }
-}).then(() => {
-  console.log('Data is saved')
-}).catch((e) => {
-  console.log('This failed.', e)
-})
+
+export { firebase, database as default }
+
+
+
+// database.ref('expenses')
+//   .on('value', (snapshot) => {
+//     const expenses = [];
+//     snapshot.forEach((childSnapshot) => {
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       })
+//     })
+//     console.log(expenses)
+//   });
+
+// database.ref().on('value', (snapshot) => {
+//   const val = snapshot.val();
+//   console.log(`${val.name} is working in ${val.job.company}`)
+// })
+
+// database.ref('expenses').on('child_removed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
+
+// database.ref('expenses').on('child_added', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
+
+
+
+
+// database.ref('expenses').push({
+//   description: 'First Try',
+//   note: 'First Try Note',
+//   amount: 999
+// })
+
+
+
+    // database.ref().on('value', (snapshot) => {
+    //   console.log(snapshot.val());
+    // })
+
+    // setTimeout(() => {
+    //   database.ref('age').set(33)
+    // }, 3000);
+
+    // setTimeout(() => {
+    //   database.ref().off();
+    // }, 6000);
+
+    // setTimeout(() => {
+    //   database.ref('age').set(41)
+    // }, 8000);
+
+// database.ref('location')
+//   .once('value')
+//   .then((snapshot) => {
+//     const val = snapshot.val()
+//     console.log(val)
+//   }).catch((e) => {
+//     console.log('error', e)
+//   });
+
+
+  // database.ref().set({
+  //   name: 'Max Cendalski',
+  //   age: 44,
+  //   stressLevel: 6,
+  //   job: {
+  //     title: 'Software developer',
+  //     company: 'Google'
+  //   },
+  //   location: {
+  //     city: 'Aliso Viejo',
+  //     country: 'United States'
+  //   }
+  // }).then(() => {
+  //   console.log('Data is saved')
+  // }).catch((e) => {
+  //   console.log('This failed.', e)
+  // })
+
+  // database.ref().update({
+  //   stressLevel: 9,
+  //   'job/company': 'Amazon',
+  //   'location/city': 'Seattle'
+  // });
 
 // database.ref('isSingle').remove()
 //   .then(() => {
